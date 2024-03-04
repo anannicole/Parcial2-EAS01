@@ -11,16 +11,28 @@ class Jugador{
         Agrega propiedades para guardar la vida(número entero), ataque(número entero) y nombre del jugador.
         Agrega una propiedad para guardar el jugador que lo atacó por última vez.
     */
+   public: 
+int vida;
+int ataque;
+string nombre;
     
     Jugador(); 
-    Jugador(/* agrega parámetros para asignar hp, ataque y nombre */); 
+    Jugador(int hp, int attack, string name/* agrega parámetros para asignar hp, ataque y nombre */); 
     
-    void atacar(/* agregar parámetros para atacar a otro jugador*/); 
+    void atacar(int atack/* agregar parámetros para atacar a otro jugador*/); 
 };
 
 int main()
 {
     srand(time(0));  // Seed para generar valores aleatorios
+
+    Jugador p1;
+    p1.vida = 100;
+    p1.ataque = 5;
+    p1.nombre = "Pablo";
+
+    Jugador p2 (150, 5, "mireya");
+
     
     /*
         Crear al menos 2 jugadores con diferentes nombres, vida y ataque. 
@@ -33,21 +45,54 @@ int main()
 }
 
 Jugador::Jugador(){
+    vida= 100;
+    ataque= 5;
+    nombre = "no definido";
     /*
         Asignar 100 a hp y 5 a attack como valores default.
         Asignar 'No definido' al nombre como default.
     */
 }
 
-Jugador::Jugador(/* Agrega parámetros para asignar hp, ataque y nombre*/){
-    /*
+Jugador::Jugador(int hp, int attack, string name/* Agrega parámetros para asignar hp, ataque y nombre*/){
+
+    vida= hp;
+    ataque= attack;
+    nombre= name;
+    if(hp>200){
+      hp=200;
+       if (hp<0){
+        hp= 0;
+       }
+
+    }
+
+    if (attack>20){
+        attack=20;
+        if(attack<0){
+            attack=0;
+        }
+    }
+
+   /* 
         Asignar los parámetros recibidos a las propiedades del objeto.
         No se pueden asignar valores negativos a hp y attack.
         Máximo 200 hp y 20 attack
     */
 }
 
-void Jugador::atacar(/* Agregar parámetros para atacar a otro Jugador */){
+void Jugador::atacar(Jugador jugador){
+
+    if (jugador = p2){
+
+        cout << 
+    }
+    
+
+
+
+
+
     /*
         El jugador atacado(el que recibes como parámetro) pierde HP igual al ataque del jugador que ataca.
         Existe un 20% de probabilidad de que el ataque falle y no haga daño.
